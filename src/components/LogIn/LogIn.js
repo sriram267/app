@@ -4,11 +4,6 @@ import GoogleButton from "react-google-button";
 import { Link } from "react-router-dom"
 import "./LogIn.css"
 const LogIn = () => {
-  const[email,setEmail] = useState("");
-  const[password,setPassword] = useState("");
-  const[error,setError] = useState("");
-
-
   return (
     <div className="signup-component">
       <Card className="card">
@@ -17,11 +12,11 @@ const LogIn = () => {
             <Form>
                 <Form.Group id="email">
                     <Form.Label>Email :</Form.Label>
-                    <Form.Control type="email" onChange={(e)=> setEmail(e.target.value)} />
+                    <Form.Control type="email"  />
                 </Form.Group>
                 <Form.Group id="password">
                     <Form.Label>Password :</Form.Label>
-                    <Form.Control type="password" onChange={(e) => setPassword(e.target.ariaValueText)}/>
+                    <Form.Control type="password" />
                 </Form.Group>
             </Form>
             <Button type="submit">Log In</Button>
