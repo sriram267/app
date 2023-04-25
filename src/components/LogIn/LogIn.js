@@ -14,7 +14,7 @@ const LogIn = () => {
       <Card className="card">
         <Card.Body >
             <h2>Log In Page</h2>
-            <Form onSubmit={handleSubmit}>
+            <Form>
                 <Form.Group id="email">
                     <Form.Label>Email :</Form.Label>
                     <Form.Control type="email" onChange={(e)=> setEmail(e.target.value)} />

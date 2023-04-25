@@ -1,7 +1,7 @@
-import LogIn from "./components/LogiIn/LogIn.js";
+import LogIn from "./components/LogIn/LogIn.js";
 import { Routes, Route, } from "react-router-dom"
 import CreateAccount from "./components/CreateAccount/CreateAccount.js";
-import { UserAuthContextProvider } from "./context/UserAuthContext"
+import { UserAuthContextProvider } from "./components/context/UserAuthContext.js"
 
 function App() {
   return (
