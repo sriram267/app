@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./CreateAccount.css"
 import { useUserAuth } from "../context/UserAuthContext"
 
@@ -9,11 +9,13 @@ const CreateAccount = () => {
   const[password,setPassword] = useState("");
   const[error,setError] = useState(""); 
   const {signUp} = useUserAuth();
+  const navigate = useNavigate(); 
   const handleSubmit = async(e) => {
-    e.preventDefaut();
+    e.preventDefault();
     setError("")
     try {
       await signUp(email,password);
+      navigate("/")
     }catch(err){
       setError(err.message)
     }
@@ -33,8 +35,8 @@ const CreateAccount = () => {
                   <Form.Label>Password :</Form.Label>
                   <Form.Control type="password" onChange={(e)=> setPassword(e.target.value)}/>
               </Form.Group>
+              <Button type="submit">Create Account</Button>
           </Form>
-          <Button type="submit">Create Account</Button>
       </Card.Body>
     </Card>
     <Card  className="p-3  mt-3 text-center">
