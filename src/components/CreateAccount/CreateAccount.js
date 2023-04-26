@@ -31,6 +31,7 @@ const CreateAccount = () => {
                   <Form.Label>Email :</Form.Label>
                   <Form.Control type="email" onChange={(e)=> setEmail(e.target.value)} />
               </Form.Group>
+              <br />
               <Form.Group id="password">
                   <Form.Label>Password :</Form.Label>
                   <Form.Control type="password" onChange={(e)=> setPassword(e.target.value)}/>
