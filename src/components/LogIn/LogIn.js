@@ -9,18 +9,28 @@ const LogIn = () => {
   const[email,setEmail] = useState("");
   const[password,setPassword] = useState("");
   const[error,setError] = useState(""); 
-  const {logIn} = useUserAuth();
+  const {logIn, googleSignIn} = useUserAuth();
   const navigate = useNavigate(); 
   const handleSubmit = async(e) => {
     e.preventDefault();
     setError("")
     try {
       await logIn(email,password);
-      navigate("/dasboard")
+      navigate("/dashboard")
     }catch(err){
       setError(err.message)
     }
   };
+  const handeGoogleSignIn = async(e) => {
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      navigate("/dashboard")
+    }catch(err){
+      setError(err.message)
+    }
+  }
+
   return (
     <div className="signup-component">
       <Card className="card">
@@ -40,10 +50,11 @@ const LogIn = () => {
             <div className="btn-bar"/>
             <div>
                   <GoogleButton
-                   style={{
+                    style={{
                     width: "100%",
                     marginTop: "20px",
-                   }}
+                    }}
+                    onClick={handeGoogleSignIn}
                   />
             </div>
             </Form>
